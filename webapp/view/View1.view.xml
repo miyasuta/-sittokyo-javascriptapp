@@ -1,0 +1,17 @@
+<mvc:View controllerName="javascriptapp.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <Button
+            id="button"
+            text="Say Hello"
+            press=".onShowHello"/>
+        <Input
+            id="input"
+            value="{/recipient/name}"
+            description="Hello {/recipient/name}"
+            valueLiveUpdate="true"
+            liveChange="onLiveChange"
+            width="60%"/>
+    </Page>
+</mvc:View>
