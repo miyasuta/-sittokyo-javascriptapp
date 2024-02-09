@@ -13,18 +13,15 @@ sap.ui.define([
         return Controller.extend("javascriptapp.controller.View1", {
             onInit: function () {
                 // set data model on view
-                const oData = {
-                    recipient : {
-                    name : "World"
-                    }
+                const recipient =  {
+                    recipientName : "World"
                 };
-                const oModel = new JSONModel(oData);
+                const oModel = new JSONModel(recipient);
                 this.getView().setModel(oModel);
             },
 
             onShowHello() {
-                const data = this.getView().getModel().getData();
-                const name = data.recipient.name;
+                const name = this.getView().getModel().getProperty("/recipientName");
                 MessageBox.show(`Hello ${name}`);
             },
 
