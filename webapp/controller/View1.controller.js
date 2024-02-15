@@ -25,8 +25,8 @@ sap.ui.define([
                 MessageBox.show(`Hello ${name}`);
             },
 
-            onLiveChange(evt) {
-                const value = evt.getParameter("value");
+            onLiveChange(event) {
+                const value = event.getParameter("value");
                 MessageToast.show(`Value changed to ${value}`);
             }
         });
