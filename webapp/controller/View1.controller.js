@@ -12,21 +12,26 @@ sap.ui.define([
 
         return Controller.extend("javascriptapp.controller.View1", {
             onInit: function () {
-                // set data model on view
                 const recipient =  {
                     recipientName : "World"
                 };
+                // JSONモデルを作成
                 const oModel = new JSONModel(recipient);
+                // Viewに登録
                 this.getView().setModel(oModel);
             },
 
             onShowHello() {
-                const name = this.getView().getModel().getProperty("/recipientName");
+                // ViewModelからrecipientNameを取得
+                const name = this.getView().getModel().getData().recipientName;
+                // MessageBoxで表示
                 MessageBox.show(`Hello ${name}`);
             },
 
             onLiveChange(event) {
+                // イベントパラメータ：value（入力された値）を取得
                 const value = event.getParameter("value");
+                // MessageToastで表示
                 MessageToast.show(`Value changed to ${value}`);
             }
         });
