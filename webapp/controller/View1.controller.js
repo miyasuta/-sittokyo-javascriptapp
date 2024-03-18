@@ -16,9 +16,16 @@ sap.ui.define([
                     recipientName : "World"
                 };
                 // JSONモデルを作成
-                const oModel = new JSONModel(recipient);
+                const model = new JSONModel(recipient);
                 // Viewに登録
-                this.getView().setModel(oModel);
+                this.getView().setModel(model);
+            },
+            
+            onLiveChange(event) {
+                // イベントパラメータ：value（入力された値）を取得
+                const value = event.getParameter("value");
+                // MessageToastで表示
+                MessageToast.show(`Value changed to ${value}`);
             },
 
             onShowHello() {
@@ -26,13 +33,7 @@ sap.ui.define([
                 const name = this.getView().getModel().getData().recipientName;
                 // MessageBoxで表示
                 MessageBox.show(`Hello ${name}`);
-            },
-
-            onLiveChange(event) {
-                // イベントパラメータ：value（入力された値）を取得
-                const value = event.getParameter("value");
-                // MessageToastで表示
-                MessageToast.show(`Value changed to ${value}`);
             }
+
         });
     });
